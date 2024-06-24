@@ -271,3 +271,36 @@ Empty set (0.00 sec)
 
 
 
+--------------------------------------------------------------------------------------------------------------------------------
+     UC8 - Ability to extend employee payroll data to store employee information like employee phone, address, department
+--------------------------------------------------------------------------------------------------------------------------------
+
+mysql> ALTER TABLE employee_payroll ADD (phone_no INT,Address VARCHAR(255) DEFAULT 'MUMBAI', Departmetment VARCHAR(255) NOT NULL );
+Query OK, 0 rows affected (0.90 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE employee_payroll;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| employee_id   | int          | NO   | PRI | NULL    | auto_increment |
+| name          | varchar(255) | NO   |     | NULL    |                |
+| gender        | varchar(255) | YES  |     | NULL    |                |
+| salary        | double       | NO   |     | NULL    |                |
+| start_date    | date         | NO   |     | NULL    |                |
+| phone_no      | int          | YES  |     | NULL    |                |
+| Address       | varchar(255) | YES  |     | MUMBAI  |                |
+| Departmetment | varchar(255) | NO   |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql>  SELECT * FROM employee_payroll;
++-------------+---------+--------+---------+------------+----------+---------+---------------+
+| employee_id | name    | gender | salary  | start_date | phone_no | Address | Departmetment |
++-------------+---------+--------+---------+------------+----------+---------+---------------+
+|           1 | Swapnil | M      |   25000 | 2024-02-05 |     NULL | MUMBAI  |               |
+|           2 | Crook   | M      | 2000000 | 2024-01-08 |     NULL | MUMBAI  |               |
+|           3 | Tom     | M      |   30000 | 2015-06-03 |     NULL | MUMBAI  |               |
+|           4 | Mark    | M      |   28000 | 2015-06-03 |     NULL | MUMBAI  |               |
++-------------+---------+--------+---------+------------+----------+---------+---------------+
+4 rows in set (0.00 sec)
