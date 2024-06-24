@@ -118,3 +118,57 @@ Query OK, 4 rows affected (1.14 sec)
 Records: 4  Duplicates: 0  Warnings: 0
 
 
+-------------------------------------------------------------------------------------------------
+      UC4 - Ability to retrieve all the employee payroll data in payroll service database
+-------------------------------------------------------------------------------------------------
+
+
+mysql> SELECT * FROM employee_payroll;
++-------------+---------+---------+------------+
+| employee_id | name    | salary  | start_date |
++-------------+---------+---------+------------+
+|           1 | Swapnil |   25000 | 2024-02-05 |
+|           2 | Crook   | 2000000 | 2024-01-08 |
+|           3 | Tom     |   30000 | 2015-06-03 |
+|           4 | Mark    |   28000 | 2015-06-03 |
++-------------+---------+---------+------------+
+4 rows in set (0.15 sec)
+
+----------------------------------------------------------------------------------------------------
+       UC5 - Ability to retrieve salary data for a particular employee as well as all employees
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+SELECT * FROM employee_payroll;
++-------------+---------+---------+------------+
+| employee_id | name    | salary  | start_date |
++-------------+---------+---------+------------+
+|           1 | Swapnil |   25000 | 2024-02-05 |
+|           2 | Crook   | 2000000 | 2024-01-08 |
+|           3 | Tom     |   30000 | 2015-06-03 |
+|           4 | Mark    |   28000 | 2015-06-03 |
++-------------+---------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT salary FROM employee_payroll WHERE name = "Swapnil";
++--------+
+| salary |
++--------+
+|  25000 |
++--------+
+1 row in set (0.05 sec)
+
+mysql>  SELECT * FROM employee_payroll WHERE start_date BETWEEN CAST('2024-01-01' AS DATE) AND DATE (NOW());
++-------------+---------+---------+------------+
+| employee_id | name    | salary  | start_date |
++-------------+---------+---------+------------+
+|           1 | Swapnil |   25000 | 2024-02-05 |
+|           2 | Crook   | 2000000 | 2024-01-08 |
++-------------+---------+---------+------------+
+2 rows in set (0.10 sec)
+
+
+
