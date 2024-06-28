@@ -348,3 +348,176 @@ mysql> select * from employee_payroll;
 +-------------+---------+--------+---------+------------+----------+---------+---------------+-----------+------------+-------------+------------+---------+
 4 rows in set (0.00 sec)
 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                UC 10 - Ability to Complete employee payroll need to be Inserted
+
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql>  UPDATE employee_payroll SET Department = "IT",Basic_pay = 25000, Deductions = 1500, Taxable_pay = 2000, Income_tax = 700,Net_pay = 1000 WHERE name = "Swapnil";
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> select * from employee_payroll;
++-------------+---------+--------+---------+------------+----------+---------+------------+-----------+------------+-------------+------------+---------+
+| employee_id | name    | gender | salary  | start_date | phone_no | Address | Department | Basic_pay | Deductions | Taxable_pay | Income_tax | Net_pay |
++-------------+---------+--------+---------+------------+----------+---------+------------+-----------+------------+-------------+------------+---------+
+|           1 | Swapnil | M      |   25000 | 2024-02-05 |     NULL | MUMBAI  | IT         |     25000 |       1500 |        2000 |        700 |    1000 |
+|           2 | Crook   | M      | 2000000 | 2024-01-08 |     NULL | MUMBAI  |            |      NULL |       NULL |        NULL |       NULL |    NULL |
+|           3 | Tom     | M      |   30000 | 2015-06-03 |     NULL | MUMBAI  |            |      NULL |       NULL |        NULL |       NULL |    NULL |
+|           4 | Mark    | M      |   28000 | 2015-06-03 |     NULL | MUMBAI  |            |      NULL |       NULL |        NULL |       NULL |    NULL |
++-------------+---------+--------+---------+------------+----------+---------+------------+-----------+------------+-------------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> UPDATE employee_payroll
+    -> SET Department = 'IT',
+    ->     Basic_pay = 25000,
+    ->     Deductions = 1500,
+    ->     Taxable_pay = 2000,
+    ->     Income_tax = 700,
+    ->     Net_pay = 1000
+    -> WHERE name = 'Swapnil';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'IT',
+    ->     Basic_pay = 25000,
+    ->     Deductions = 1500,
+    ->     Taxable_pay = 2000,
+    ->     Income_tax = 700,
+    ->     Net_pay = 1000
+    -> WHERE name = 'Crook';
+Query OK, 0 rows affected (0.03 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Marketing',
+    ->     Basic_pay = 25000,
+    ->     Deductions = 1500,
+    ->     Taxable_pay = 2000,
+    ->     Income_tax = 700,
+    ->     Net_pay = 1000
+    -> WHERE name = 'Tom';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Marketing',
+    ->     Basic_pay = 25000,
+    ->     Deductions = 1500,
+    ->     Taxable_pay = 2000,
+    ->     Income_tax = 700,
+    ->     Net_pay = 1000
+    -> WHERE name = 'Mark';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'IT',
+    ->     Basic_pay = 150000,
+    ->     Deductions = 5000,
+    ->     Taxable_pay = 145000,
+    ->     Income_tax = 5000,
+    ->     Net_pay = 140000
+    -> WHERE name = 'Megatron';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Legal',
+    ->     Basic_pay = 130000,
+    ->     Deductions = 4000,
+    ->     Taxable_pay = 126000,
+    ->     Income_tax = 4000,
+    ->     Net_pay = 122000
+    -> WHERE name = 'Starscream';
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Sales',
+    ->     Basic_pay = 120000,
+    ->     Deductions = 3500,
+    ->     Taxable_pay = 116500,
+    ->     Income_tax = 3500,
+    ->     Net_pay = 113000
+    -> WHERE name = 'Soundwave';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'IT',
+    ->     Basic_pay = 140000,
+    ->     Deductions = 4500,
+    ->     Taxable_pay = 135500,
+    ->     Income_tax = 4500,
+    ->     Net_pay = 131000
+    -> WHERE name = 'Shockwave';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Legal',
+    ->     Basic_pay = 160000,
+    ->     Deductions = 5500,
+    ->     Taxable_pay = 154500,
+    ->     Income_tax = 5500,
+    ->     Net_pay = 149000
+    -> WHERE name = 'Galvatron';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Sales',
+    ->     Basic_pay = 90000,
+    ->     Deductions = 3000,
+    ->     Taxable_pay = 87000,
+    ->     Income_tax = 3000,
+    ->     Net_pay = 84000
+    -> WHERE name = 'Anjali';
+Query OK, 1 row affected (0.35 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+mysql> UPDATE employee_payroll
+    -> SET Department = 'Legal',
+    ->     Basic_pay = 85000,
+    ->     Deductions = 2800,
+    ->     Taxable_pay = 82200,
+    ->     Income_tax = 2800,
+    ->     Net_pay = 79400
+    -> WHERE name = 'Smital';
+Query OK, 1 row affected (0.18 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++-------------+------------+--------+---------+------------+----------+-----------+------------+-----------+------------+-------------+------------+---------+
+| employee_id | name       | gender | salary  | start_date | phone_no | Address   | Department | Basic_pay | Deductions | Taxable_pay | Income_tax | Net_pay |
++-------------+------------+--------+---------+------------+----------+-----------+------------+-----------+------------+-------------+------------+---------+
+|           1 | Swapnil    | M      |   25000 | 2024-02-05 |     NULL | MUMBAI    | IT         |     25000 |       1500 |        2000 |        700 |    1000 |
+|           2 | Crook      | M      | 2000000 | 2024-01-08 |     NULL | MUMBAI    | IT         |     25000 |       1500 |        2000 |        700 |    1000 |
+|           3 | Tom        | M      |   30000 | 2015-06-03 |     NULL | MUMBAI    | Marketing  |     25000 |       1500 |        2000 |        700 |    1000 |
+|           4 | Mark       | M      |   28000 | 2015-06-03 |     NULL | MUMBAI    | Marketing  |     25000 |       1500 |        2000 |        700 |    1000 |
+|           5 | Megatron   | M      |  150000 | 2024-06-28 |     NULL | MUMBAI    | IT         |    150000 |       5000 |      145000 |       5000 |  140000 |
+|           6 | Starscream | M      |  130000 | 2024-06-28 |     NULL | Cybertron | Legal      |    130000 |       4000 |      126000 |       4000 |  122000 |
+|           7 | Soundwave  | M      |  120000 | 2024-06-28 |     NULL | Cybertron | Sales      |    120000 |       3500 |      116500 |       3500 |  113000 |
+|           8 | Shockwave  | M      |  140000 | 2024-06-28 |     NULL | Cybertron | IT         |    140000 |       4500 |      135500 |       4500 |  131000 |
+|           9 | Galvatron  | M      |  160000 | 2024-06-28 |     NULL | Cybertron | Legal      |    160000 |       5500 |      154500 |       5500 |  149000 |
+|          10 | Anjali     | F      |   90000 | 2024-06-28 |     NULL | Mumbai    | Sales      |     90000 |       3000 |       87000 |       3000 |   84000 |
+|          11 | Smital     | F      |   85000 | 2024-06-28 |     NULL | Mumbai    | Legal      |     85000 |       2800 |       82200 |       2800 |   79400 |
++-------------+------------+--------+---------+------------+----------+-----------+------------+-----------+------------+-------------+------------+---------+
+11 rows in set (0.00 sec)
