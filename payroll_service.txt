@@ -521,3 +521,81 @@ mysql> select * from employee_payroll;
 |          11 | Smital     | F      |   85000 | 2024-06-28 |     NULL | Mumbai    | Legal      |     85000 |       2800 |       82200 |       2800 |   79400 |
 +-------------+------------+--------+---------+------------+----------+-----------+------------+-----------+------------+-------------+------------+---------+
 11 rows in set (0.00 sec)
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+	UC11 - Ability to create new Table called Employee Department having Employee Id and Department ID 
+--------------------------------------------------------------------------------------------------------------------
+
+
+mysql> CREATE TABLE department_payroll (department_id INT NOT NULL ,
+    -> PRIMARY KEY (department_id));
+Query OK, 0 rows affected (2.33 sec)
+
+mysql> INSERT INTO department_payroll (department_id) VALUES (101),(102),(103),(104),(105);
+Query OK, 5 rows affected (0.22 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> ALTER table department_payroll ADD(departement_name VARCHAR (255));
+Query OK, 0 rows affected (1.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  UPDATE department_payroll SET departement_name="IT" WHERE department_id=101;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE department_payroll SET departement_name="CIVIL" WHERE department_id=102;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE department_payroll SET departement_name="ME" WHERE department_id=103;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE department_payroll SET departement_name="COM" WHERE department_id=104;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE department_payroll SET departement_name="ETC" WHERE department_id=105;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> CREATE TABLE employee_department (
+    ->  employee_id INT,
+    ->  department_id INT,
+    ->  PRIMARY KEY (employee_id, department_id),
+    -> FOREIGN KEY (employee_id) REFERENCES employee_payroll(employee_id),
+    -> FOREIGN KEY (department_id) REFERENCES department_payroll(department_id)
+    -> );
+Query OK, 0 rows affected (1.11 sec)
+
+mysql>
+mysql> mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (1, 101);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (1, 1' at line 1
+mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (1, 101);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (2, 102);
+Query OK, 1 row affected (0.22 sec)
+
+mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (3, 103);
+Query OK, 1 row affected (0.26 sec)
+
+mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (4, 104);
+Query OK, 1 row affected (0.28 sec)
+
+mysql> INSERT INTO employee_department (employee_id, department_id) VALUES (5, 105);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from employee_department;
++-------------+---------------+
+| employee_id | department_id |
++-------------+---------------+
+|           1 |           101 |
+|           2 |           102 |
+|           3 |           103 |
+|           4 |           104 |
+|           5 |           105 |
++-------------+---------------+
+5 rows in set (0.00 sec)
